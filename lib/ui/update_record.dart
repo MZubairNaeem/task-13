@@ -15,7 +15,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
 
   final  userNameController = TextEditingController();
   final  userAgeController= TextEditingController();
-  final  userSalaryController =TextEditingController();
+  final  userRoleController =TextEditingController();
 
   late DatabaseReference dbRef;
 
@@ -33,7 +33,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
 
     userNameController.text = student['name'];
     userAgeController.text = student['age'];
-    userSalaryController.text = student['salary'];
+    userRoleController.text = student['role'];
 
   }
 
@@ -88,12 +88,12 @@ class _UpdateRecordState extends State<UpdateRecord> {
                 height: 30,
               ),
               TextField(
-                controller: userSalaryController,
-                keyboardType: TextInputType.phone,
+                controller: userRoleController,
+                keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Salary',
-                  hintText: 'Enter Your Salary',
+                  labelText: 'Role',
+                  hintText: 'Enter Your Role',
                 ),
               ),
               const SizedBox(
@@ -105,7 +105,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
                   Map<String, String> students = {
                     'name': userNameController.text,
                     'age': userAgeController.text,
-                    'salary': userSalaryController.text
+                    'salary': userRoleController.text
                   };
 
                   dbRef.child(widget.studentKey).update(students)
